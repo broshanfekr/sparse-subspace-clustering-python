@@ -7,7 +7,7 @@
 # bernoulli distribution: +1/sqrt(r),-1/sqrt(r) elements with same probability
 # X: D x N data matrix of N data points
 # r: dimension of the space to project the data to
-# type: type of projection, {'PCA','NormalProj','BernoulliProj'}
+# # type: type of projection, {'PCA','NormalProj','BernoulliProj'}
 # Xp: r x N data matrix of N projectred data points
 
 import numpy as np

@@ -55,16 +55,16 @@ def SparseCoefRecovery(Xp, cst=0, Opt='Lasso', lmbda=0.001):
                 prob.solve()
         else:
             if Opt == 'Lasso':
-                c = cvx.Variable(N - 1, 1)
+                c = cvx.Variable(N - 1, '1')
                 obj = cvx.Minimize(cvx.norm(c, 1) + lmbda * cvx.norm(Y * c - y))
                 prob = cvx.Problem(obj)
-                prob.solve()
+                prob.solve(verbose=True)
             elif Opt == 'L1Perfect':
-                c = cvx.Variable(N - 1, 1)
+                c = cvx.Variable(N - 1, '1')
                 obj = cvx.Minimize(cvx.norm(c, 1))
                 constraint = [Y * c == y]
                 prob = cvx.Problem(obj, constraint)
-                prob.solve()
+                prob.solve(verbose=True)
             elif Opt == 'L1Noise':
                 c = cvx.Variable(N - 1, 1)
                 obj = cvx.Minimize(cvx.norm(c, 1))
